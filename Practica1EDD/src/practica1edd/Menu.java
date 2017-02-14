@@ -10,6 +10,7 @@ package practica1edd;
  * @author Fernando
  */
 public class Menu extends javax.swing.JFrame {
+    ListaSimpleDPalabras a = new ListaSimpleDPalabras();
 
     /**
      * Creates new form Menu
@@ -17,6 +18,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -75,15 +77,13 @@ public class Menu extends javax.swing.JFrame {
         
         LeerArchivo l = new LeerArchivo();
         l.CargarXml();
-        
-        
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
         Juego j = new Juego();
         j.setVisible(true);
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

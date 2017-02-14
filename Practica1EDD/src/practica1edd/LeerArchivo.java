@@ -13,6 +13,8 @@ public class LeerArchivo {
     
 public void CargarXml(){
     
+    ListaSimpleDPalabras Dic = new ListaSimpleDPalabras();
+    
      //Se crea un SAXBuilder para poder parsear el archivo
     SAXBuilder builder = new SAXBuilder();
     File xmlFile = new File( "C:\\Users\\Fernando\\Desktop\\Archivo.xml" );
@@ -125,10 +127,15 @@ public void CargarXml(){
                 String pal = P.getTextTrim();
          
                 System.out.println( "PALABRAS " +pal );
+                Dic.agregarAlFinal(pal);
+                
                 
             }
             
         }
+        
+        
+        Dic.Graficar();
             
             
         

@@ -1,14 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package practica1edd;
 
 import java.io.FileWriter;
-import java.io.*;
+import java.io.PrintWriter;
 
-public class ListaCircular {
+/**
+ *
+ * @author Fernando
+ */
+public class ListaSimpleDPalabras {
     
     // Puntero que indica el inicio de la lista 
-    private NodoC inicio;
+    private NodoLS inicio;
     // Puntero que indica el final de la lista o el ultimo nodo.
-    private NodoC ultimo;
+    private NodoLS ultimo;
     // Variable para registrar el tamaño de la lista.
     private int tamanio;
     
@@ -30,9 +39,10 @@ public class ListaCircular {
      * Agrega un nuevo nodo al final de la lista circular.
      * @param valor a agregar.
      */
-    public void agregarAlFinal(String valor){
+    
+     public void agregarAlFinal(String valor){
         // Define un nuevo nodo.
-        NodoC nuevo = new NodoC();
+        NodoLS nuevo = new NodoLS();
         // Agrega al valor al nodo.
         nuevo.setValor(valor);
         System.out.println("agregaste : "+valor );
@@ -57,13 +67,16 @@ public class ListaCircular {
         // Incrementa el contador de tamaño de la lista
         tamanio++;
     }
-        
+    
+    
+    
     public void listar(){
-        // Verifica si la lista contiene elementoa.
+        System.out.println("PRUEBA");
+         // Verifica si la lista contiene elementoa.
         if (!esVacia()) {
             // Crea una copia de la lista.
-            NodoC aux = inicio;
-            NodoC a = ultimo;
+            NodoLS aux = inicio;
+            NodoLS a = ultimo;
             // Posicion de los elementos de la lista.
             int i = 0;
             System.out.print("-> ");
@@ -71,6 +84,7 @@ public class ListaCircular {
             do{
                 // Imprime en pantalla el valor del nodo.
                 System.out.print(i + ".[ " + aux.getValor() + " ]" + " ->  ");
+                tamanio++;
                 
                 // Avanza al siguiente nodo.
                 aux = aux.getSiguiente();
@@ -80,7 +94,7 @@ public class ListaCircular {
             }while(aux != inicio);
         }
     }
-            
+          
     public void Graficar(){
         
         
@@ -88,7 +102,7 @@ public class ListaCircular {
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("C:\\Users\\Fernando\\Desktop\\LC.txt");
+            fichero = new FileWriter("C:\\Users\\Fernando\\Desktop\\LS.txt");
             
             pw = new PrintWriter(fichero);
             pw.append("digraph listaCircular{ \n");
@@ -101,7 +115,7 @@ public class ListaCircular {
             // Verifica si la lista contiene elementoa.
             if (!esVacia()) {
             // Crea una copia de la lista.
-            NodoC aux = inicio;
+            NodoLS aux = inicio;
             // Posicion de los elementos de la lista.
             int i = 0;
             System.out.print("-> ");
@@ -109,28 +123,30 @@ public class ListaCircular {
             do{
                 // Imprime en pantalla el valor del nodo.
                 System.out.print(i + ".[ " + aux.getValor() + " ]" + " ->  ");
-               
-                pw.append( aux.getValor()+"->");
-               
                 
+                if (i==0) {
+                     pw.append( aux.getValor());
+                }
                 
-                
+                if (aux.getSiguiente()!= null && i!=0) {
+                    pw.append("->"+aux.getValor());
+                }
+                               
                 // Avanza al siguiente nodo.
                 aux = aux.getSiguiente();
-                
-                
-                    
-                    
-                
-                
+                               
                 // Incrementa el contador de la posión.
                 
                 i++;
             }while(aux != inicio);
             
-                if (aux==inicio) {
-                    pw.append( inicio.getValor());
+                
+            
+                if (aux == aux.getSiguiente()) {
+                    aux=null;
                 }
+            
+                
             }
             
             pw.append("\n}");
@@ -140,8 +156,8 @@ public class ListaCircular {
              
                 String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
                 
-                String fileInputPath = "C:\\Users\\Fernando\\Desktop\\LC.txt";
-                String fileOutputPath = "C:\\Users\\Fernando\\Desktop\\LC.png";
+                String fileInputPath = "C:\\Users\\Fernando\\Desktop\\LS.txt";
+                String fileOutputPath = "C:\\Users\\Fernando\\Desktop\\LS.png";
       
                 String tParam = "-Tpng";
                 String tOParam = "-o";
@@ -181,6 +197,6 @@ public class ListaCircular {
         
         
     
-    }       
-    
+    }      
+          
 }
