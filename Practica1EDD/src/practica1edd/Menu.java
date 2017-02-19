@@ -5,12 +5,21 @@
  */
 package practica1edd;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import java.io.File;
+import java.io.IOException;
+
+
 /**
  *
  * @author Fernando
  */
 public class Menu extends javax.swing.JFrame {
     ListaSimpleDPalabras a = new ListaSimpleDPalabras();
+    public static String NombreArhivo;
 
     /**
      * Creates new form Menu
@@ -75,8 +84,45 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
+        
+        String aux="";   
+        String texto="";
+        
+        try
+        {
+            JFileChooser file=new JFileChooser();
+            file.showOpenDialog(this);
+            File abre=file.getSelectedFile();
+            
+            if(abre!=null)
+            {     
+                FileReader archivos=new FileReader(abre);
+                BufferedReader lee=new BufferedReader(archivos);
+                while((aux=lee.readLine())!=null){
+                   texto+= aux+ "\n";
+                }
+                  lee.close();
+                
+                  NombreArhivo=abre.toString();
+                
+                  
+                  
+                
+            }    
+        }
+        catch(IOException ex){
+            JOptionPane.showMessageDialog(null,ex+"" +
+                 "\nNo se ha encontrado el archivo",
+                       "ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
         LeerArchivo l = new LeerArchivo();
-        l.CargarXml();
+        l.CargarXml(NombreArhivo);
+        
+        
+        
+      
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -86,6 +132,7 @@ public class Menu extends javax.swing.JFrame {
         j.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+      
     /**
      * @param args the command line arguments
      */

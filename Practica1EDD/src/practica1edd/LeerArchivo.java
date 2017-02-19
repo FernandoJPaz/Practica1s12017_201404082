@@ -10,14 +10,21 @@ import org.jdom2.input.SAXBuilder;
 
 
 public class LeerArchivo {
+        Menu m = new Menu();
+       
     
-public void CargarXml(){
+public  void CargarXml(String nombre){
     
     ListaSimpleDPalabras Dic = new ListaSimpleDPalabras();
-    
-     //Se crea un SAXBuilder para poder parsear el archivo
+
+
+          
+    //Se crea un SAXBuilder para poder parsear el archivo
     SAXBuilder builder = new SAXBuilder();
-    File xmlFile = new File( "C:\\Users\\Fernando\\Desktop\\Archivo.xml" );
+    
+    
+    //File xmlFile = new File( "C:\\Users\\Fernando\\Desktop\\Archivo.xml" );
+    File xmlFile = new File(nombre);     
     try
     {
         

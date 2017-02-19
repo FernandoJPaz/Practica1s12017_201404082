@@ -1,0 +1,6 @@
+digraph listaCircular{ 
+	node [fontcolor="white", height=0.5, color="black"]
+[shape=box, style=filled, color=black]	edge  [color="black", dir=fordware]
+	rankdir=LR
+hola->mundo->como->estas->uno->dos->tres->universidad->practica->primera->correo->juego
+}

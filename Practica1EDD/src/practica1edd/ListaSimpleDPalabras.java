@@ -102,7 +102,7 @@ public class ListaSimpleDPalabras {
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("C:\\Users\\Fernando\\Desktop\\LS.txt");
+            fichero = new FileWriter("C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\LS.txt");
             
             pw = new PrintWriter(fichero);
             pw.append("digraph listaCircular{ \n");
@@ -156,8 +156,8 @@ public class ListaSimpleDPalabras {
              
                 String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
                 
-                String fileInputPath = "C:\\Users\\Fernando\\Desktop\\LS.txt";
-                String fileOutputPath = "C:\\Users\\Fernando\\Desktop\\LS.png";
+                String fileInputPath = "C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\LS.txt";
+                String fileOutputPath = "C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\LC.png";
       
                 String tParam = "-Tpng";
                 String tOParam = "-o";

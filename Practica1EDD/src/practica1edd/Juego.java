@@ -32,6 +32,7 @@ public class Juego extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -55,6 +56,13 @@ public class Juego extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Matriz");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -93,9 +101,12 @@ public class Juego extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(130, 130, 130)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(52, 52, 52)
+                        .addComponent(jButton3))
                     .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +116,9 @@ public class Juego extends javax.swing.JFrame {
                 .addGap(76, 76, 76)
                 .addComponent(jButton1)
                 .addGap(104, 104, 104)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addContainerGap(288, Short.MAX_VALUE))
         );
 
@@ -136,6 +149,82 @@ public class Juego extends javax.swing.JFrame {
         LS.listar();
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Matriz mat= new Matriz();
+      /*  mat.addNodo("DATO1", 1, 1);
+        mat.addNodo("DATO2", 1, 2);
+        mat.addNodo("DATO3", 1, 3);
+        
+        
+        
+        mat.addNodo("DATO4", 2, 1);
+        mat.addNodo("DATO5", 2, 2);
+        mat.addNodo("DATO6", 2, 3);
+        
+        mat.addNodo("DATO7", 3, 1);
+        mat.addNodo("DATO8", 3, 2);
+        mat.addNodo("DATO9", 3, 3);
+        */
+        
+        //mat.addNodo("DATO1", 1, 1);
+        //mat.addNodo("DATO2", 1, 2);
+        
+        //mat.addNodo("DATO3", 2, 2);
+       // mat.addNodo("DATO3", 2, 2);
+       
+       
+        
+     
+
+        mat.addNodo("fila1",1, 0);
+        mat.addNodo("fila1",1, 1);
+        mat.addNodo("fila1",1, 2);
+        
+        mat.addNodo("fila2",2, 0);
+        mat.addNodo("fila2",2, 1);
+        mat.addNodo("fila2",2, 2);
+              
+        mat.addNodo("fila3",3, 0);
+        mat.addNodo("fila3",3, 1);
+        mat.addNodo("fila3",3, 2);
+        
+        
+        
+        
+        /*
+        mat.addNodo(1, 1, 2);
+        mat.addNodo(2, 2, 2);
+        mat.addNodo(3, 3, 2);
+        mat.addNodo(4, 4, 2);
+        mat.addNodo(5, 5, 2);*/
+        
+//        mat.addNodo(1, 3, 1);
+//        mat.addNodo(2, 3, 2);
+//        mat.addNodo(3, 3, 3);
+//        mat.addNodo(4, 3, 4);
+//        mat.addNodo(5, 3, 5);
+//        
+//        mat.addNodo(1, 4, 1);
+//        mat.addNodo(2, 4, 2);
+//        mat.addNodo(3, 4, 3);
+//        mat.addNodo(4, 4, 4);
+//        mat.addNodo(5, 4, 5);
+//        
+//        mat.addNodo(1, 5, 1);
+//        mat.addNodo(2, 5, 2);
+//        mat.addNodo(3, 5, 3);
+//        mat.addNodo(4, 5, 4);
+//        mat.addNodo(5, 5, 5);
+
+        
+        
+        mat.graphMat2();
+       // mat.GraficarMatriz();
+        mat.linealizarColumnas();
+        mat.linealizarFilas();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +264,7 @@ public class Juego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
