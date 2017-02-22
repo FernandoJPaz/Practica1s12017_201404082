@@ -20,6 +20,7 @@ import java.io.IOException;
 public class Menu extends javax.swing.JFrame {
     ListaSimpleDPalabras a = new ListaSimpleDPalabras();
     public static String NombreArhivo;
+    
 
     /**
      * Creates new form Menu
@@ -83,8 +84,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
+
         String aux="";   
         String texto="";
         
@@ -101,35 +101,42 @@ public class Menu extends javax.swing.JFrame {
                 while((aux=lee.readLine())!=null){
                    texto+= aux+ "\n";
                 }
-                  lee.close();
-                
-                  NombreArhivo=abre.toString();
-                
-                  
-                  
-                
+                lee.close();
+                NombreArhivo=abre.toString();
             }    
         }
         catch(IOException ex){
             JOptionPane.showMessageDialog(null,ex+"" +
-                 "\nNo se ha encontrado el archivo",
-                       "ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);
+            "\nNo se ha encontrado el archivo",
+            "ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);
         }
         
         
         LeerArchivo l = new LeerArchivo();
         l.CargarXml(NombreArhivo);
-        
-        
-        
-      
- 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
         Juego j = new Juego();
         j.setVisible(true);
+//        
+//        Matriz m = new Matriz();
+//        /*m.LlenarMatriz();
+//        m.linealizarColumnas();*/
+//        
+//        m.addNodo("puto", 1, 1);
+//        m.linealizarFilas();
+
+       // MOrtogonal a = new MOrtogonal();
+       // a.LlenarMatriz();
+//        a.addNodo("hola", 0, 0);
+//         a.addNodo("a", 0, 1);
+//          a.addNodo("b", 0, 2);
+//           a.addNodo("c", 0, 3);
+       // a.linealizarColumnas();
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
       

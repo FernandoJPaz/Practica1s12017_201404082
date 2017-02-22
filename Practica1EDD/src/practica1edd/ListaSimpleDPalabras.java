@@ -157,7 +157,7 @@ public class ListaSimpleDPalabras {
                 String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
                 
                 String fileInputPath = "C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\LS.txt";
-                String fileOutputPath = "C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\LC.png";
+                String fileOutputPath = "C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\LS.png";
       
                 String tParam = "-Tpng";
                 String tOParam = "-o";

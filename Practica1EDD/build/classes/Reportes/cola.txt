@@ -1,0 +1,6 @@
+digraph Cola{ 
+	node [fontcolor="white", height=0.5, color="black"]
+[shape=box, style=filled, color=black]	edge  [color="black", dir=fordware]
+	rankdir=LR
+S W F U M K K 
+}

@@ -5,14 +5,21 @@ package practica1edd;
  * @author Fernando
  */
 import java.io.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+import static practica1edd.LeerArchivo.dimension;
 public class Matriz {
+    
+    
+    
     
     File f;
     FileWriter w;
     BufferedWriter bw;
     PrintWriter wr;    
-    
+    JLabel[][] textos;
     NodoCabecera cabecera;
 
     int sizex;
@@ -215,30 +222,58 @@ public class Matriz {
     }
     
     public void linealizarColumnas(){
+        Juego jue = new Juego();
+        celda celda;
+        JButton boton ;
         System.out.println("POR COLUMNAS");
         NodoCabecera faux=cabecera;
         NodoCabecera caux=cabecera;
         while(faux!=null){
             while(caux!=null){
-                System.out.print("<--(" + caux.posx +","+ caux.posy +"): "+ caux.valor.toString() +"-->");
+                
+                //System.out.print("<--(" + caux.posx +","+ caux.posy +"): "+ caux.valor.toString() +"-->");
+                  celda=(celda) caux.valor;
+                  boton=celda.getBoton();
+                  boton.setBounds(celda.getPosx()*25, celda.getPosy()*25, 25, 25);
+                  jue.add(boton);
+                
                 caux=caux.abajo;
             }
             System.out.println("^");
             faux=faux.siguiente;
             caux=faux;
         }
+        jue.show();
         System.out.println("FIN POR COLUMNAS");
     }
     
-     public void graphMat2(){
+    public void LlenarMatriz() {
+
+        dimension =10;
+        celda celda;
+        for (int i = 0; i < dimension; i++) {
+            for (int k = 0; k < dimension; k++) {
+                celda = new celda();
+                celda.setBoton(new JButton());
+                celda.setPosx(i);
+                celda.setPosy(k);
+
+                celda.setValor(1);
+
+                addNodo(celda, i, k);
+            }
+        }
+    }
+    
+    public void graphMat2(){
          
         FileWriter fichero = null;
         PrintWriter pw = null;
         
         try{
                         
-            fichero = new FileWriter("C:\\Users\\Fernando\\Desktop\\MatrizOrtogonal.txt");
-            
+//            fichero = new FileWriter("C:\\Users\\Fernando\\Desktop\\MatrizOrtogonal.txt");
+              fichero = new FileWriter("C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\MatrizOrtogonal.txt");
             pw = new PrintWriter(fichero);
             pw.append("Digraph G { \n");
             pw.append("Subgraph cluster_0{style= \"filled\"; fillcolor= \"#F3E2A9\"; label = \"MATRIZ\"; rankdir=LR;\n");
@@ -292,8 +327,8 @@ public class Matriz {
             
                 String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
                 
-                String fileInputPath = "C:\\Users\\Fernando\\Desktop\\MatrizOrtogonal.txt";
-                String fileOutputPath = "C:\\Users\\Fernando\\Desktop\\MatrizOrtogonal.png";
+                String fileInputPath = "C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\MatrizOrtogonal.txt";
+                String fileOutputPath = "C:\\Users\\Fernando\\Documents\\NetBeansProjects\\Practica1EDD\\src\\Reportes\\MatrizOrtogonal.png";
       
                 String tParam = "-Tpng";
                 String tOParam = "-o";
